@@ -1,0 +1,62 @@
+p {
+  font: 32px "Arial", sans-serif;
+  text-align: center;
+}
+
+h1{
+  font: 20px "Arial", sans-serif;
+  text-align: center;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap");
+
+.title-wrapper {
+display: grid;
+align-items: center;
+justify-content: center;
+transform: skew(0, 0);
+}
+
+.sweet-title {
+order: 2;
+color: #ffe9f4;
+font-weight: 200;
+text-transform: full-width;
+font-size: clamp(3rem, 8vw, 5rem);
+text-align: center;
+text-shadow: 3px 1px 1px #ff4a59, 2px 2px 1px #fb167d, 4px 2px 1px #ff4aab,
+  3px 3px 1px #fb1644, 5px 3px 1px #ff4a4a, 4px 4px 1px #fb1616,
+  6px 4px 1px #ff4a83, 5px 5px 1px #fb168c, 7px 5px 1px #ff4a9e,
+  6px 6px 1px #fb169c, 8px 6px 1px #ff4aa4, 7px 7px 1px #fb1689,
+  9px 7px 1px #ff4a4a;
+}
+
+.parentDiv {  
+display: flex; 
+justify-content: center; 
+align-items: center;
+} 
+
+table{
+  text-align: center;
+  align-content: center;
+}
+
+tr, td {
+  border: 1px solid black;
+  text-align: center;
+  align-content: center;
+}
+
+img{
+  align-content: center;
+  text-align: center;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 50%;*/
+}
+

@@ -1,0 +1,182 @@
+<!-- Extends professors.html so that professor related pages still have search functionality -->
+{% extends "professors.html" %}
+{% block profResults  %}
+
+<!-- Professor Info Area -->
+<h2 style="margin-left: 50px;"> {{result["prof_name"]}}</h2>
+<br><hr><br> <!-- Horizontal Divider -->
+
+<!-- Div to display professor's rating graph.
+     Makes use of chart.js to create graph -->
+<div class="distribution-area" > 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
+    
+    <div class="chartCard">
+        <div class = "chartBox">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    
+    <script>
+
+    // xValues are displayed on vertical axis and vice versa 
+    var xValues = ["Worst (1): {{ratings[0]}}", "Bad (2): {{ratings[1]}}", "Average (3): {{ratings[2]}}", "Good (4): {{ratings[3]}}", "Best (5): {{ratings[4]}}"];
+    var yValues = {{ratings}};
+
+    // TODO: Use these for greater flexibility
+    // var r = 0
+    // var g = 150
+    // var b = 255
+    
+    // var barColors = ["rgba(0, 150, 255, 1.0)", "rgba(0, 150, 255, 0.9)",
+    //                 "rgba(0, 150, 255, 0.8)", "rgba(0, 150, 255, 0.8)",
+    //                 "rgba(0, 150, 255, 0.7)", "rgba(0, 150, 255, 0.7)",
+    //                 "rgba(0, 150, 255, 0.7)"];
+
+    var barColors = ['rgba(255, 26, 104, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                    'rgba(255, 159, 64, 0.5)',
+                    'rgba(0, 0, 0, 0.5)']
+
+    var borderColors = ['rgba(255, 26, 104, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(0, 0, 0, 1)']
+
+    Chart.defaults.font.size = 30;
+
+    // Creates a white background for graph (black by default)
+    Chart.register({
+        id: 'custom_canvas_background_color',
+        beforeDraw: (chart, args, options) => {
+            const {ctx} = chart;
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.fillStyle = options.color;
+            ctx.fillRect(210, 60, chart.width, chart.height - 100);
+            ctx.restore();
+        }
+    });
+ 
+
+    // This is where graph data and layout are manipulated:
+    // axis labels and rating values are given in "data"
+    // graph properties (ticks, padding, colors, etc.) are given in "options"
+    // other functionalities are given in "plugins"
+    var config = {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                    backgroundColor: barColors,
+                    borderColor: borderColors,
+                    data: yValues,
+                    borderWidth: 1
+                    }]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            scales: {
+                x: {
+                    ticks:{
+                        display: false,
+                        // font: {
+                        //     size:50
+                        // },
+                        padding:10,
+                        color:'white'
+                    },
+                    title:{
+                        display:false,
+                        align:'center',
+                        text: 'Letter Grades',
+                        color:'white',
+                    },
+                    min: 0,
+                    max: Math.max(...yValues) + 0.2,
+                },
+                y: {
+                    ticks: {
+                        color:'white',
+                        padding:10,
+                        // Include a percentage sign in the ticks
+                        
+                    },
+                    title:{
+                        display:false,
+                        align:'center',
+                        text: 'Ratings',
+                        color:'white'
+                    },
+                }
+            },
+            plugins: {
+                custom_canvas_background_color:{
+                    color:'white'
+                },
+                title: {
+                    display: true,
+                    text: 'Rating Distribution',
+                    align: 'start',
+                    color: 'white',
+                    font: 'bold',
+                },
+                legend: {
+                    display:false
+                },
+                tooltip: {
+                    titleFont:{
+                        size:30,
+                    },
+                    bodyFont:{
+                        size:30
+                    },
+                    // callbacks: {
+                    //     afterLabel: function(tooltipItem, data) {
+                    //         return data.datasets[tooltipItem.datasetIndex].label + ': ' + percent + '%';
+                    //     }
+                    // }
+                }
+            }
+        }
+    };
+
+    var ctx = document.getElementById("myChart").getContext("2d");
+    new Chart(ctx, config)
+
+    </script>
+
+    <!-- <img src="../static/Graphs/Distributions/{{result['courseId']}}.png" width="650" height="350"> -->
+</div>
+
+<br><hr>
+
+<!-- Comment Section -->
+<h2 class="comment-section">Latest Comments:</h2>
+{% for dic in comments %} {#comments is a list of dictionaries #}
+
+<h2 class="comment-text">{{ dic["comment"]}}</h2>
+{% endfor %}
+
+{% if current_user.is_authenticated %}
+<form action="" method="post">
+    
+    {{ loggedInUserForm.hidden_tag() }}
+    Add a Comment for Professor {{result["prof_name"]}}
+    <p>Rating: {{ loggedInUserForm.rating() }}</p>
+    <p>{{ loggedInUserForm.text() }}</p>
+    <p>{{ loggedInUserForm.submit() }}</p>
+</form>
+{% endif %}
+</body>
+
+{% endblock %}

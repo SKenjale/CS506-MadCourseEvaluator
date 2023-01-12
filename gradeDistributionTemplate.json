@@ -1,0 +1,77 @@
+{
+    "courseUuid": "str",
+    "cumulative": {
+        "total": "int",
+        "aCount": "int",
+        "abCount": "int",
+        "bCount": "int",
+        "bcCount": "int",
+        "cCount": "int",
+        "dCount": "int",
+        "fCount": "int",
+        "sCount": "int",
+        "uCount": "int",
+        "crCount": "int",
+        "nCount": "int",
+        "pCount": "int",
+        "iCount": "int",
+        "nwCount": "int",
+        "nrCount": "int",
+        "otherCount":"int"
+    },
+    "courseOfferings": [
+        {
+            "termCode": "int",
+            "cumulative": {
+                "total": "int",
+                "aCount": "int",
+                "abCount": "int",
+                "bCount": "int",
+                "bcCount": "int",
+                "cCount": "int",
+                "dCount": "int",
+                "fCount": "int",
+                "sCount": "int",
+                "uCount": "int",
+                "crCount": "int",
+                "nCount": "int",
+                "pCount": "int",
+                "iCount": "int",
+                "nwCount": "int",
+                "nrCount": "int",
+                "otherCount": "int"
+            },
+            "sections" : [
+                {
+                    "sectionNumber": "int",
+                    "instructors": [
+                        {
+                            "id": "int",
+                            "name": "str"
+                        },
+                        "..."
+                    ],
+                    "total": "int",
+                    "aCount": "int",
+                    "abCount": "int",
+                    "bCount": "int",
+                    "bcCount": "int",
+                    "cCount": "int",
+                    "dCount": "int",
+                    "fCount": "int",
+                    "sCount": "int",
+                    "uCount": "int",
+                    "crCount": "int",
+                    "nCount": "int",
+                    "pCount": "int",
+                    "iCount": "int",
+                    "nwCount": "int",
+                    "nrCount": "int",
+                    "otherCount": "int"
+                },
+                "..."
+            ]
+        },
+        "..."
+    ]
+}

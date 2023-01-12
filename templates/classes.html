@@ -1,0 +1,28 @@
+<!-- Extends base.html so that class related pages still have nav bar -->
+{% extends "base.html" %}
+{% block content %} 
+
+<!-- Link to css styling for professors pages -->
+<link href="../static/css/classes.css" rel="stylesheet"/>
+
+<h1>Search for Classes (Ex: "Comp Sci 537")</h1>
+
+<!-- Form consisting of a search input field and a submit button
+     Data is sent to /classes endpoint in backend_v1.py -->
+<div class="searchBar">
+    <form action="/classes" method="POST">
+        {{ searchForm.hidden_tag() }}
+        {{ searchForm.searchInput() }}
+        {{ searchForm.submit() }}
+    </form>
+</div>
+
+<!-- Jinja template referencing classesResults.html -->
+<div>
+    <!-- Page Content after search lives here -->
+    {% block classResults %} {% endblock %}
+</div>
+
+{% endblock %}
+
+

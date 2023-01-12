@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <div class="signup-form">
+    <form method="POST">
+      <link href="../static/css/signup.css" rel="stylesheet"/>
+      {{ signupForm.hidden_tag() }}
+      <p>{{ signupForm.username.label }}
+        {{signupForm.username()}}
+      </p>
+
+      <p>
+        {{signupForm.email.label}}
+        {{signupForm.email()}} {#email is of type html <email> #}
+      </p>
+
+      <p>{{ signupForm.password1.label }}
+        {{signupForm.password1()}}
+      </p>
+      <p>{{ signupForm.password2.label }}
+          {{signupForm.password2()}}
+        </p>
+      <div class="test">
+        <p>{{signupForm.submit()}} </p>
+      </div>  
+    </form>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+requests
+wtforms
+python-dotenv
+Flask
+mysql-connector-python
+Flask-WTF
+matplotlib
+tqdm
+Flask-Login

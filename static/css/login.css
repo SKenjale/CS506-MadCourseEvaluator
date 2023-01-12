@@ -1,0 +1,69 @@
+.login-form{
+  font: 2em "Helvetica", serif;
+  display:flex;
+  justify-content: center;
+  padding-top:80px;
+  background-color:black;
+  border: 3px solid rgba(155, 0, 0, 1);
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.signupnow{
+    display: flex;
+    justify-content: center;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid rgba(155, 0, 0, 1);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid rgba(155, 0, 0, 1);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid rgba(155, 0, 0, 1);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+
+input[type=submit] {
+    width: 100%;
+    margin-top:-1em;
+    padding:10px 20px;
+    background-color: rgba(155, 0, 0, 1);
+    color: white;
+    border: 3px solid rgba(155, 0, 0, 1);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font: 0.8em "Helvetica", serif;
+    cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+    background-color: #c5050c;
+}
+
+.test {
+    display:flex;
+    justify-content: center;
+}

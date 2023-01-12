@@ -1,0 +1,48 @@
+<!-- <!DOCTYPE html> -->
+<!-- Using HTML4 for compatiability purposes  -->
+<!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01//EN”
+“http://www.w3.org/TR/html4/strict.dtd">
+   <html lang="en"></html>
+   <html>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+      <link href="../static/css/navStyle.css" rel="stylesheet" />
+   </head>
+
+   <body>
+      <div class = "header">
+         <div class="logo">
+            <a href="/"><img src="../static/images/logo.png"></a>
+         </div>
+         <div class="navBar">
+            <ul>
+               <li class="inactive"><a href="/">Home</a></li>
+               <li class="inactive"><a href="/professors">Professors</a></li>
+               <li class="inactive"><a href="/classes">Classes</a></li>
+               <li class="inactive" id="login_or_profile"><a href="/login">Login</a></li>
+            </ul>
+         </div>
+      </div>
+
+    <!-- Script that changes "Login" tab to "Profile" if the user is logged in -->
+   {% if current_user.is_authenticated %}
+   <script>
+      document.getElementById("login_or_profile").innerHTML = "<a href='/profile'>Profile</a>"
+   </script>
+   {% endif %}
+
+   <!-- TODO: Need script to specific which page user is on -->
+   <script>
+      var navItems = document.querySelectorAll(".inactive");
+      for (var i = 0; i < navItems.length; i++) {
+         navItems[i].addEventListener("click", function() {
+            this.classList.add("active");
+         });
+      }
+   </script>
+      <div class="meat"> 
+         {% block content %} {% endblock %}
+      </div>
+</body>
+</html>

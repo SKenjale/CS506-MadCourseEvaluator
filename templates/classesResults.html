@@ -1,0 +1,26 @@
+<!-- Extends classes.html so that class related pages still have search functionality -->
+{% extends "classes.html" %}
+{% block classResults  %}
+
+<!-- "Results for: SEARCH_INPUT" to be displayed above results -->
+<h2> RESULTS FOR : {{searchForm.data["searchInput"]}}</h2>
+
+{#Format of the each result dictionary:
+{courseID: 2
+"courseName: Comp Sci 506
+courseDept:Computer Sciences}
+#}
+
+<!-- A for loop displays the results of the search -->
+<div class="results-area">
+
+    {% for result in results %} {# results is a list of dictionaries, result is a dictionary #}
+    <div class="class-container">
+        <a href="/classesInfo/{{result['courseId']}}">{{result["courseName"]}}</a>
+    </div>
+    
+    {% endfor %}
+
+</div>
+
+{% endblock %}

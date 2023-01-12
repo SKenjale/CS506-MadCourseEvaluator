@@ -1,0 +1,21 @@
+<!-- Extends professors.html so that professor related pages still have search functionality -->
+{% extends "professors.html" %}
+{% block profResults  %}
+
+<!-- "Results for: SEARCH_INPUT" to be displayed above results -->
+<h2 style="margin-left: 50px;">Results for {{searchForm.data["searchInput"]}}:</h2>
+
+<!-- A for loop displays the results of the search -->
+<div class="results-area">
+
+    {# results is a list of dictionaries, result is a dictionary #}
+    {% for result in results %} 
+    <div class="prof-container">
+        <a href="/professorsInfo/{{result['profId']}}">{{result["prof_name"]}}</a>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

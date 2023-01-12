@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <link href="../static/css/login.css" rel="stylesheet"/>
+  <div class="login-form">
+    <form action="/login" method="POST">
+      {{ loginForm.hidden_tag() }}
+      <div class="signupnow">
+        <p>Not a user? <a href="/signup">Sign up</a></p>
+      </div>
+      <p>
+        {{loginForm.email.label}}
+        {{loginForm.email()}} {#email is ot type html <email> #}
+      </p>
+      <p>{{ loginForm.username.label }}
+        {{loginForm.username()}}
+      </p>
+      <p>{{ loginForm.password.label }}
+        {{loginForm.password()}}
+      </p>
+
+      <div class="test">
+        <p>{{loginForm.submit()}} </p>
+      </div>  
+    </form>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+<!-- Extends base.html so that professor related pages still have nav bar -->
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Link to css styling for professors pages -->
+<link href="../static/css/professors.css" rel="stylesheet"/>
+
+<h1>Search for Professors (Ex: "Remzi")</h1>
+
+<!-- Form consisting of a search input field and a submit button
+     Data is sent to /professors endpoint in backend_v1.py -->
+<form class="searchBar" action="/professors" method="POST">
+    {{ searchForm.hidden_tag() }}
+    {{ searchForm.searchInput() }}
+    {{ searchForm.submit() }}
+</form>
+
+<!-- Jinja template referencing professorsResults.html -->
+<div>
+    {% block profResults %} {% endblock %}
+</div>
+
+{% endblock %}

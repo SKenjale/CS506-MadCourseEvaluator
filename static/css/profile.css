@@ -1,0 +1,120 @@
+.info{
+    font:2em "Helvetica", sans-serif;
+    margin-left: 80px;
+}
+
+.user-info{
+    margin-left: 50px;
+}
+
+.section-header{
+    margin-left: 50px;
+    font:3em "Helvetica",sans-serif;
+    padding: 0px 0px 20px 20px;
+}
+
+.add-form{
+    display: flex;
+    width: 88%;
+    margin: 0px auto 20px auto;
+    padding: 30px 20px 30px 20px;
+    text-align: center;
+    border-width: 2px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    background-color: thistle;
+    white-space: nowrap;
+}
+
+.add-form > form{
+    text-align: center;
+}
+
+.text-input{
+    margin: 0px, auto, 0px, auto;
+    padding: 5px, 0px, 5px, 0px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    background-color: tomato;
+    
+}
+
+.enrollment-container{
+    font:20px "Helvetica",sans-serif;
+    display: flex;
+    justify-content: center;
+    width: 88%;
+    margin: 0px auto 20px auto;
+    padding: 30px 0px 30px 0px;
+    text-align: left;
+    border-width: 2px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #FFFFFF;
+}
+
+.enrollment-text{
+    width: fit-content;
+    margin-right: 20px;
+/*     background-color: tomato; */
+    word-wrap: break-word;
+}
+
+.content{
+  font:1.3rem "Helvetica", sans-serif;
+/*   display:inline-grid; */
+/*   justify-content: center; */
+}
+
+/* .term, .class, and .professor establish the bounding areas for their 
+    respective sections in an enrollment container */
+.term{
+    width: 10%;
+    padding: 5px 5px 5px 5px;
+    margin-right: 5px;
+/*     background-color: teal; */
+}
+
+.course{
+    width: 55%;
+/*     padding: 5px 5px 5px 5px; */
+    margin-right: 5px;
+/*     background-color: teal; */
+}
+
+.professor{
+    width: 35%;
+    padding: 5px 5px 5px 5px;
+    margin-right: 5px;
+/*     background-color: teal; */
+}
+
+.add-enrollment{
+    width: 10%;
+    float:right;
+    background-color: rgba(155, 0, 0, 1);
+    color: white;
+    padding: 10px 0px 10px 0px;
+    margin: 0px 0px 20px 0px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.add-enrollment:hover {
+    background-color: #c5050c;
+}
+
+a {
+    color: white;
+    /* font: 30px Helvetica Neue, sans-serif ; */
+    /* text-transform: uppercase; */
+    /* border-radius: 20px 20px 0px 0px; */
+}
+a:hover {
+    color: white;
+    background-color: red;
+}

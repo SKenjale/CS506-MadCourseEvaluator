@@ -1,0 +1,129 @@
+/* Font and alignment for general use h2 elements. 
+   Used for text on top of page */
+   h2 { 
+    font: 2em "Helvetica", serif;
+    text-align: center;
+   }
+  /* 
+    Search Functionality consisting of search input field and submit button 
+  */
+  
+  /* Search Input */
+   .searchBar{
+/*     background-color: rgb(22, 22, 22); */
+   }
+  
+  input[type="search"], select {
+    width: 450px;
+    padding: 0.5em 1em;
+    border: 5px solid rgba(155, 0, 0, 1);
+    border-radius: 30px;
+  }
+  
+  /* Submit Button */
+  input[type="submit"]{
+    padding:0.5em 1em;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+/* Submit Button */
+/* input[type="submit"]{
+  width: 100px;
+  border-radius: 20px;
+  border-color: rgba(155, 0, 0, 1);
+  border-style: solid;
+  background-color: white;
+} */
+
+
+/* 
+  Area where search results are displayed
+*/
+
+/* Lighter background color */
+.results-area{
+  background-color: #2b2a2a;
+  padding: 28px 0 8px 0;
+  border-radius: 20px;
+}
+
+/* Professor search result text formatting */
+.prof-container{
+  font:30px Helvetica Neue ,sans-serif;
+  text-transform: uppercase;
+  margin-left: 30px;
+  text-align: left;
+}
+
+/* Color when link is NOT hovered over. White text on a red background */
+.prof-container a{
+  display:inline-block;
+  margin: 0px auto 20px auto;
+  padding: 25px;
+  border-radius: 20px;
+  background-color:darkred;
+  color:white;
+}
+
+/* Color when link IS hovered over. Red text on a yellow background */
+.prof-container a:hover{
+    background-color:yellow;
+    color:darkred;
+}
+
+/* 
+  Area where professor's rating graph is displayed
+  Much of the graph's styling is done in professorsInfo.html
+*/
+
+/* Lighter background color for bar graph*/
+.distribution-area{
+    background-color: #2b2a2a;
+    padding: 50px 50px;
+    border-radius: 20px;
+    border: 4px solid ;
+    min-width:500px;
+    min-height:800px;
+}
+
+/* 
+  Area where comments are displayed
+*/
+.comment-section{
+  padding-top: 20px;
+  padding-left: 45px;
+  padding-bottom: 20px;
+}
+
+/* Comment text formatting */
+.comment-text{
+  width: 88%;
+  margin: 0px auto 20px auto;
+  padding: 30px 20px 30px 20px;
+  border-width: 2px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #FFFFFF;
+}
+
+/* Change hyperlink text color when link has been visited */
+a:link, a:visited { 
+  color: white;
+  text-decoration: none;
+  cursor: auto;
+}
+
+/* Change hyperlink text color when link is active */
+a:link:active, a:visited:active { 
+  color: white;
+}
+
+
+/* chartBox is a div that contains the canvas used to draw chart.js graphs */
+.chartBox{
+    position: relative;
+    margin:auto;
+    height:80vh;
+    max-width: 1500px;
+}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Link to css styling for professors pages -->
+<link href="../static/css/profile.css" rel="stylesheet"/>
+
+<!-- User Information -->
+<div class="info">
+    <h1 class="user-name">Hi! John Doe</h1>
+    <h3 class="user-info">a@wisc.edu</h2>
+    <h3 class="user-info">Major: Just Living</h2>
+</div>
+<br><hr><br> <!-- Horizontal Divider -->
+
+<!-- Javascript function to create an enrollment form for the user to fill out -->
+
+<script>
+    var formIsCreated = false; //boolean value, true if a form is already created
+
+    function enrollmentPopup(){
+        if(!formIsCreated){
+            var form = document.createElement("form"); // create the form element        
+            var formClass = document.createElement("div"); // create a div so the form can be styled with CSS
+            formClass.className = "add-form";
+
+            // create the text input fields
+            var termInput = document.createElement("input");
+            termInput.type = "text";
+            termInput.className = "text-input term"
+            termInput.placeholder = "Term";
+
+            var courseInput = document.createElement("input");
+            courseInput.type = "text";
+            courseInput.className = "text-input course"
+            courseInput.placeholder = "Course";
+
+            var professorInput = document.createElement("input");
+            professorInput.type = "text";
+            professorInput.className = "text-input professor"
+            professorInput.placeholder = "Professor";
+
+            // add the text input fields to the form
+            form.appendChild(termInput);
+            form.appendChild(courseInput);
+            form.appendChild(professorInput);
+            formClass.appendChild(form);
+
+            // add the enrollment form to the page 
+            document.body.insertBefore(formClass, document.getElementById("enrollments"));
+            formIsCreated = true;
+        }
+        
+    }
+</script>
+<!-- Recommend Courses (start with button) -->
+<h2 class="section-header">Recommended Courses:</h2>
+
+<div class="results-area">
+
+    {% for key,value in recommended_courses.items() %} {# results is a dictionary #}
+    <div class="enrollment-container">
+        <a href="/classesInfo/{{key}}">{{value}}</a>
+    </div>
+    
+    {% endfor %}
+
+</div>
+
+<br><hr><br> <!-- Horizontal Divider -->
+
+<!-- User Enrollments -->
+<h2 class="section-header">Your Enrollments:</h2>
+
+<!-- List user's enrollments -->
+<div class="content">
+    {% for i in range(3) %}
+        <div class="enrollment-container" id="enrollments">
+            <div class="term">
+                <p class="enrollment-text">Term</p>
+            </div>
+            <div class="course">
+            <p class="enrollment-text">ENVIR ST 139: Living in the Global Environment: An Introduction to People-Environment Geography MMMMMMMMMMMMMMMMMMMMMMMMMMMM</p>
+            </div>
+            <div class="professor">
+                <p class="enrollment-text">Professor</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<!-- Add Enrollments Button-->
+<input class="add-enrollment" type="button", value="Add Enrollment", onclick="enrollmentPopup()">
+
+{% endblock %}
